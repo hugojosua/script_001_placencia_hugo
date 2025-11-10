@@ -1,0 +1,39 @@
+.container {
+    font-family: arial;
+    background-color: blue;
+    display: flex;
+    flex-direction: column;
+}
+
+.demo {
+    display: flex;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    border: 1px solid aqua;
+    border-radius: 5px;
+    transition: background-color 1s, transform 1s;
+}
+
+.fizz:hover {
+    background-color: beige;
+    transform: translateY(-5px);
+}
+
+.buzz {
+    transform: translateY(-5px);
+    transition: transform 0.3s;
+}
+
+.fizzbuzz {
+    transform: rotate(5deg);
+    transition: transform 0.3s;
+}
+.buzz:hover {
+    transform: translateY(0);
+}
