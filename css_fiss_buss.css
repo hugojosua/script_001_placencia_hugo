@@ -1,39 +1,64 @@
+/* Contenedor general */
 .container {
-    font-family: arial;
-    background-color: blue;
+    font-family: Arial;
     display: flex;
     flex-direction: column;
+    gap: 10px;
+    margin: 20px;
 }
 
+/* Fila */
 .demo {
     display: flex;
+    gap: 10px;
 }
 
+/* Cuadros */
 .content {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 50px;
-    width: 50px;
-    border: 1px solid aqua;
-    border-radius: 5px;
-    transition: background-color 1s, transform 1s;
+    height: 60px;
+    width: 60px;
+    border: 1px solid #888;
+    border-radius: 8px;
+    background-color: white;
+    transition: background-color .4s, transform .4s, box-shadow .4s;
+    font-weight: bold;
 }
 
-.fizz:hover {
-    background-color: beige;
-    transform: translateY(-5px);
+/* ===== ESTILOS FIZZ ===== */
+.content.fizz {
+    background-color: #e3f2fd;   /* azul claro */
 }
 
-.buzz {
-    transform: translateY(-5px);
-    transition: transform 0.3s;
+.content.fizz:hover {
+    background-color: #2196F3;
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(33, 150, 243, 0.5);
 }
 
-.fizzbuzz {
-    transform: rotate(5deg);
-    transition: transform 0.3s;
+/* ===== ESTILOS BUZZ ===== */
+.content.buzz {
+    background-color: #fff3cd;   /* amarillo */
 }
-.buzz:hover {
-    transform: translateY(0);
+
+.content.buzz:hover {
+    background-color: #ff9800;
+    color: white;
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
+}
+
+/* ===== ESTILOS FIZZBUZZ ===== */
+.content.fizzbuzz {
+    background-color: #e1bee7;   /* morado claro */
+}
+
+.content.fizzbuzz:hover {
+    background-color: #9c27b0;
+    color: white;
+    transform: rotate(-10deg) scale(1.1);
+    box-shadow: 0 0 20px rgba(156, 39, 176, 0.5);
 }

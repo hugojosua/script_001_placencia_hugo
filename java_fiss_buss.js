@@ -1,60 +1,40 @@
-
-function addClass(contenedordiv, className) {
-    contenedordiv.classList.add(className);
+function addClass(element, className) {
+    element.classList.add(className);
 }
 
 function createMatrix(dimension, container) {
     let counter = 1;
 
     for (let i = 0; i < dimension; i++) {
-        const div = document.createElement("div");
-        addClass(div, "demo");
+        const row = document.createElement("div");
+        addClass(row, "demo");
 
         for (let j = 0; j < dimension; j++) {
 
-            const content = document.createElement("div");
-            addClass(content, "content");
+            const box = document.createElement("div");
+            addClass(box, "content");
+            box.textContent = counter;
 
-            content.textContent = counter;
+            // REGLAS
+            const isFizz = counter % 2 === 0;
+            const isBuzz = counter % 3 === 0;
 
-            fizz(2, content, counter);
-            buzz(3, content, counter);
-            fizzBuzz(2, 3, content, counter);
+            if (isFizz && isBuzz) {
+                addClass(box, "fizzbuzz");
+            } else if (isFizz) {
+                addClass(box, "fizz");
+            } else if (isBuzz) {
+                addClass(box, "buzz");
+            }
 
-            div.appendChild(content);
+            row.appendChild(box);
             counter++;
         }
-
-        container.appendChild(div);
-    }
-}
-function buzz(divisor, square, number) {
-    if (number % divisor === 0) {
-        console.log("BUZZ:", number);
-        addClass(square, "buzz");
+        container.appendChild(row);
     }
 }
 
-function fizz(divisor, square, number) {
-    if (number % divisor === 0) {
-        console.log("FIZZ:", number);
-        addClass(square, "fizz");
-    }
-}
-
-function fizzBuzz(fizzDiv, buzzDiv, square, number) {
-    const isFizz = number % fizzDiv === 0;
-    const isBuzz = number % buzzDiv === 0;
-
-    if (isFizz && isBuzz) {
-        console.log("FIZZBUZZ:", number);
-        addClass(square, "fizz");
-        addClass(square, "buzz");
-        addClass(square, "fizzbuzz");
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     const container = document.querySelector(".container");
-    createMatrix(3, container);
+    createMatrix(10, container); // puedes subirlo a 10x10 como en tu foto
 });
