@@ -2,7 +2,9 @@ function addClass(element, className) {
     element.classList.add(className);
 }
 
-function createMatrix(dimension, container) {
+function createMatrix(dimension, container, fizzDivisor, buzzDivisor) {
+    container.innerHTML = ""; 
+
     let counter = 1;
 
     for (let i = 0; i < dimension; i++) {
@@ -15,9 +17,9 @@ function createMatrix(dimension, container) {
             addClass(box, "content");
             box.textContent = counter;
 
-            // REGLAS
-            const isFizz = counter % 2 === 0;
-            const isBuzz = counter % 3 === 0;
+        
+            const isFizz = counter % fizzDivisor === 0;
+            const isBuzz = counter % buzzDivisor === 0;
 
             if (isFizz && isBuzz) {
                 addClass(box, "fizzbuzz");
@@ -30,11 +32,33 @@ function createMatrix(dimension, container) {
             row.appendChild(box);
             counter++;
         }
+
         container.appendChild(row);
     }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-    const container = document.querySelector(".container");
-    createMatrix(10, container); // puedes subirlo a 10x10 como en tu foto
+function buttonClicked() {
+    console.log("✅ Botón presionado");
+
+    
+    const dimensionInput = document.getElementById("dimension");
+    const fizzInput = document.getElementById("fizz-divisor");
+    const buzzInput = document.getElementById("buzz-divisor");
+
+    const dimensionValue = parseInt(dimensionInput.value);
+    const fizzValue = parseInt(fizzInput.value);
+    const buzzValue = parseInt(buzzInput.value);
+
+    console.log(`Dimension: ${dimensionValue}`);
+    console.log(`Fizz divisor: ${fizzValue}`);
+    console.log(`Buzz divisor: ${buzzValue}`);
+
+    const matrixContainer = document.querySelector(".container");
+
+    createMatrix(dimensionValue, matrixContainer, fizzValue, buzzValue);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    const btnGenerate = document.getElementById("generate");
+    btnGenerate.addEventListener("click", buttonClicked);
 });

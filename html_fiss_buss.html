@@ -2,17 +2,34 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-
-    <!-- ESTABA MAL: <link rel="css_fiss_buss.css" href="css_fiss_buss.css"> -->
     <link rel="stylesheet" href="css_fiss_buss.css">
-
     <script src="java_fiss_buss.js" defer></script>
 </head>
+
 <body>
 
-<main class="container"></main>
+    <h1>FIZZ - BUZZ</h1>
 
-<footer></footer>
+    <div class="controls-bar">
+        <div class="input-group">
+            <label for="dimension">Dimension (n×n)</label>
+            <input type="number" id="dimension" value="19" min="1" max="30">
+        </div>
+
+        <div class="input-group">
+            <label for="fizz-divisor">Fizz Divisor</label>
+            <input type="number" id="fizz-divisor" value="19" min="1" max="30">
+        </div>
+
+        <div class="input-group">
+            <label for="buzz-divisor">Buzz Divisor</label>
+            <input type="number" id="buzz-divisor" value="20" min="1" max="30">
+        </div>
+
+        <button id="generate">Generate Matrix</button>
+    </div>
+
+    <main class="container" id="matrix-container"></main>
 
 </body>
 </html>

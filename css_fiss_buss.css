@@ -1,64 +1,144 @@
-/* Contenedor general */
+
 .container {
     font-family: Arial;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 10px;
-    margin: 20px;
+    margin: 30px auto;
+    max-width: 800px;
 }
 
-/* Fila */
+
 .demo {
     display: flex;
-    gap: 10px;
+    gap: 8px;
 }
 
-/* Cuadros */
+
 .content {
     display: flex;
     align-items: center;
     justify-content: center;
     height: 60px;
     width: 60px;
-    border: 1px solid #888;
+    border: 1px solid #ccc;
     border-radius: 8px;
     background-color: white;
     transition: background-color .4s, transform .4s, box-shadow .4s;
     font-weight: bold;
 }
 
-/* ===== ESTILOS FIZZ ===== */
+
 .content.fizz {
-    background-color: #e3f2fd;   /* azul claro */
+    background-color: #e3f2fd;
+}
+
+.content.buzz {
+    background-color: #fff3cd;
+}
+
+.content.fizzbuzz {
+    background-color: #e1bee7;
 }
 
 .content.fizz:hover {
     background-color: #2196F3;
     color: white;
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(33, 150, 243, 0.5);
-}
-
-/* ===== ESTILOS BUZZ ===== */
-.content.buzz {
-    background-color: #fff3cd;   /* amarillo */
+    box-shadow: 0 0 20px rgba(33,150,243,.5);
 }
 
 .content.buzz:hover {
     background-color: #ff9800;
     color: white;
     transform: rotate(5deg) scale(1.1);
-    box-shadow: 0 0 20px rgba(255, 152, 0, 0.5);
-}
-
-/* ===== ESTILOS FIZZBUZZ ===== */
-.content.fizzbuzz {
-    background-color: #e1bee7;   /* morado claro */
+    box-shadow: 0 0 20px rgba(255,152,0,.5);
 }
 
 .content.fizzbuzz:hover {
     background-color: #9c27b0;
     color: white;
     transform: rotate(-10deg) scale(1.1);
-    box-shadow: 0 0 20px rgba(156, 39, 176, 0.5);
+    box-shadow: 0 0 20px rgba(156,39,176,.5);
+}
+
+
+h1 {
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    width: 100%;
+    max-width: 800px;
+}
+
+
+.controls-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+    background-color: #f3f3f3;
+    padding: 15px 20px;
+    border-radius: 6px;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+}
+
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input-group label {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.input-group input {
+    padding: 8px;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 100px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #67b7e7;
+}
+
+
+#generate {
+    background-color: #b7f687;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color .3s;
+    height: 36px;
+    align-self: flex-end;
+}
+
+#generate:hover {
+    background-color: #97e653;
+    font-weight: bold;
+}
+
+.container {
+    justify-content: center;
+}
+
+#matrix-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
 }
